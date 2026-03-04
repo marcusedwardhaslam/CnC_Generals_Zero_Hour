@@ -40,10 +40,10 @@ Source plan: [plan-commandConquerGeneralsZeroHour.prompt.md](plan-commandConquer
 ## Phase 3 — Configuration Normalization
 | Task | Owner | Status | Priority | Target Date | Notes/Blocker | Evidence/Links |
 |---|---|---|---|---|---|---|
-| Remove/replace obsolete switches (`/G6 /GX /Gm /GZ /YX`) |  | Not Started | P0 |  |  |  |
-| Normalize PCH usage by project family |  | Not Started | P1 |  |  |  |
-| Normalize CRT/runtime settings for Win32 |  | Not Started | P1 |  |  |  |
-| Validate no unsupported flags remain in generated projects |  | Not Started | P0 |  |  |  |
+| Remove/replace obsolete switches (`/G6 /GX /Gm /GZ /YX`) | Copilot | Done | P0 | 2026-03-04 | Core reconstructed `vcxproj` contain no legacy VC6 switch usage. | [scripts/phase3/Test-Phase3Normalization.ps1](../scripts/phase3/Test-Phase3Normalization.ps1), [phase3-configuration-normalization.md](phase3-configuration-normalization.md) |
+| Normalize PCH usage by project family | Copilot | Done | P1 | 2026-03-04 | PCH mode is consistently set to `NotUsing` for core projects in both trees. | [scripts/phase3/Test-Phase3Normalization.ps1](../scripts/phase3/Test-Phase3Normalization.ps1), [phase3-configuration-normalization.md](phase3-configuration-normalization.md) |
+| Normalize CRT/runtime settings for Win32 | Copilot | Done | P1 | 2026-03-04 | Runtime libraries are consistent (`MultiThreadedDebugDLL` for Debug, `MultiThreadedDLL` for Release). | [scripts/phase3/Test-Phase3Normalization.ps1](../scripts/phase3/Test-Phase3Normalization.ps1), [phase3-configuration-normalization.md](phase3-configuration-normalization.md) |
+| Validate no unsupported flags remain in generated projects | Copilot | Done | P0 | 2026-03-04 | Automated normalization validator passes across all six core project files. | [scripts/phase3/Test-Phase3Normalization.ps1](../scripts/phase3/Test-Phase3Normalization.ps1), [phase3-configuration-normalization.md](phase3-configuration-normalization.md) |
 
 ## Phase 4 — Dependency and Path Externalization
 | Task | Owner | Status | Priority | Target Date | Notes/Blocker | Evidence/Links |
@@ -92,6 +92,7 @@ Source plan: [plan-commandConquerGeneralsZeroHour.prompt.md](plan-commandConquer
 | Gate | Criteria | Owner | Status | Target Date | Notes/Blocker | Evidence/Links |
 |---|---|---|---|---|---|---|
 | Gate A (Conversion) | All solutions load with no project conversion/load errors | Copilot | Done | 2026-03-04 | Reconstructed modern solutions/projects generated for both trees and validated for path/config integrity. | [phase2-project-conversion.md](phase2-project-conversion.md), [phase2-reconstruction-strategy.md](phase2-reconstruction-strategy.md) |
+| Gate A.1 (Normalization Core) | Core generated projects contain normalized config/runtime/PCH and no unsupported legacy flags | Copilot | Done | 2026-03-04 | Phase 3 validator passed for core reconstructed projects in both trees. | [scripts/phase3/Test-Phase3Normalization.ps1](../scripts/phase3/Test-Phase3Normalization.ps1), [phase3-configuration-normalization.md](phase3-configuration-normalization.md) |
 | Gate B (Static Readiness) | Path-lint shows no unresolved mandatory paths |  | Not Started |  |  |  |
 | Gate C (Build Progression) | Debug and Release phase tasks run with recorded outcomes |  | Not Started |  |  |  |
 | Gate D (Developer UX) | Predictable one-command task flow across trees/configs |  | Not Started |  |  |  |
@@ -121,4 +122,4 @@ Source plan: [plan-commandConquerGeneralsZeroHour.prompt.md](plan-commandConquer
 ## Weekly Snapshot
 | Week Of | Overall Status | Completed This Week | New Blockers | Next Focus |
 |---|---|---|---|---|
-| 2026-03-02 | Phase 2 core completed via reconstruction route | Generated modern core `RTS.sln/.vcxproj` for both trees; added manifest+reconstruction scripts; validation passed. | None (B-002 resolved by strategy change) | Phase 3 configuration normalization on generated core projects. |
+| 2026-03-02 | Phase 2+3 core completed | Generated modern core `RTS.sln/.vcxproj` for both trees; added reconstruction scripts; Phase 3 normalization validator added and passing. | None | Phase 4 dependency/path externalization and path-lint preflight. |
