@@ -79,6 +79,16 @@ function Write-Vcxproj {
     }
 
     $configurationType = if ($Project.TargetType -eq 'StaticLibrary') { 'StaticLibrary' } else { 'Application' }
+    $isRtsProject = ($Project.Name -eq 'RTS')
+    $isGameEngineDeviceProject = ($Project.Name -eq 'GameEngineDevice')
+    $waveNvpPath = '.\Source\W3DDevice\GameClient\Water\wave.nvp'
+    $waveNvvPath = '.\Source\W3DDevice\GameClient\Water\wave.nvv'
+
+    $rtsVersionCommand = 'set "VER_TOOL=$(SolutionDir)..\Run\rtsver.exe" & if not exist "$(SolutionDir)..\Run\rtsver.exe" set "VER_TOOL=$(SolutionDir)..\Run\versionUpdate.exe" & set "BVER_TOOL=$(SolutionDir)..\Run\rtsbuildver.exe" & if not exist "$(SolutionDir)..\Run\rtsbuildver.exe" set "BVER_TOOL=$(SolutionDir)..\Run\buildVersionUpdate.exe" & if exist "%VER_TOOL%" if exist "%BVER_TOOL%" ( "%VER_TOOL%" "$(ProjectDir)Main\generatedVersion.h" & "%BVER_TOOL%" "$(ProjectDir)Main\buildVersion.h" ) else ( echo ERROR: Missing version update tools in $(SolutionDir)..\Run & exit /b 1 )'
+    $wavePixelDebugCommand = 'if not exist "$(SolutionDir)..\Run\Shaders" mkdir "$(SolutionDir)..\Run\Shaders" & if exist "$(SolutionDir)Tools\NVASM\nvasm.exe" ( "$(SolutionDir)Tools\NVASM\nvasm.exe" -d "%(FullPath)" "$(SolutionDir)..\Run\Shaders\wave.pso" ) else ( echo ERROR: Missing NVASM tool at $(SolutionDir)Tools\NVASM\nvasm.exe & exit /b 1 )'
+    $wavePixelReleaseCommand = 'if exist "$(SolutionDir)Tools\NVASM\nvasm.exe" ( "$(SolutionDir)Tools\NVASM\nvasm.exe" -d "%(FullPath)" "$(SolutionDir)..\Run\wave.pso" ) else ( echo ERROR: Missing NVASM tool at $(SolutionDir)Tools\NVASM\nvasm.exe & exit /b 1 )'
+    $waveVertexDebugCommand = 'if not exist "$(SolutionDir)..\Run\Shaders" mkdir "$(SolutionDir)..\Run\Shaders" & if exist "$(SolutionDir)Tools\NVASM\nvasm.exe" ( "$(SolutionDir)Tools\NVASM\nvasm.exe" -d "%(FullPath)" "$(SolutionDir)..\Run\Shaders\wave.vso" ) else ( echo ERROR: Missing NVASM tool at $(SolutionDir)Tools\NVASM\nvasm.exe & exit /b 1 )'
+    $waveVertexReleaseCommand = 'if exist "$(SolutionDir)Tools\NVASM\nvasm.exe" ( "$(SolutionDir)Tools\NVASM\nvasm.exe" -d "%(FullPath)" "$(SolutionDir)..\Run\wave.vso" ) else ( echo ERROR: Missing NVASM tool at $(SolutionDir)Tools\NVASM\nvasm.exe & exit /b 1 )'
 
     $compileFiles = @()
     $includeFiles = @()
@@ -174,6 +184,11 @@ function Write-Vcxproj {
     [void]$xml.AppendLine('    </ClCompile>')
 
     if ($configurationType -eq 'Application') {
+        if ($isRtsProject) {
+            [void]$xml.AppendLine('    <PreBuildEvent>')
+            [void]$xml.AppendLine("      <Command>$([System.Security.SecurityElement]::Escape($rtsVersionCommand))</Command>")
+            [void]$xml.AppendLine('    </PreBuildEvent>')
+        }
         [void]$xml.AppendLine('    <Link>')
         [void]$xml.AppendLine("      <AdditionalDependencies>$([System.Security.SecurityElement]::Escape($debugLibs))</AdditionalDependencies>")
         [void]$xml.AppendLine("      <AdditionalLibraryDirectories>$([System.Security.SecurityElement]::Escape($debugLibPaths))</AdditionalLibraryDirectories>")
@@ -204,6 +219,11 @@ function Write-Vcxproj {
     [void]$xml.AppendLine("      <AdditionalIncludeDirectories>$([System.Security.SecurityElement]::Escape($releaseIncludes))</AdditionalIncludeDirectories>")
     [void]$xml.AppendLine("      <PreprocessorDefinitions>$([System.Security.SecurityElement]::Escape($releaseDefs))</PreprocessorDefinitions>")
     [void]$xml.AppendLine('    </ClCompile>')
+    if ($isRtsProject) {
+        [void]$xml.AppendLine('    <PreBuildEvent>')
+        [void]$xml.AppendLine("      <Command>$([System.Security.SecurityElement]::Escape($rtsVersionCommand))</Command>")
+        [void]$xml.AppendLine('    </PreBuildEvent>')
+    }
     if ($configurationType -eq 'Application') {
         [void]$xml.AppendLine('    <Link>')
         [void]$xml.AppendLine("      <AdditionalDependencies>$([System.Security.SecurityElement]::Escape($releaseLibs))</AdditionalDependencies>")
@@ -251,8 +271,30 @@ function Write-Vcxproj {
     if ($noneFiles.Count -gt 0) {
         [void]$xml.AppendLine('  <ItemGroup>')
         foreach ($file in ($noneFiles | Sort-Object -Unique)) {
+            if ($isGameEngineDeviceProject -and ($file -ieq $waveNvpPath -or $file -ieq $waveNvvPath)) {
+                continue
+            }
             [void]$xml.AppendLine("    <None Include=`"$([System.Security.SecurityElement]::Escape($file))`" />")
         }
+        [void]$xml.AppendLine('  </ItemGroup>')
+    }
+
+    if ($isGameEngineDeviceProject) {
+        [void]$xml.AppendLine('  <ItemGroup>')
+        [void]$xml.AppendLine("    <CustomBuild Include=`"$waveNvpPath`">")
+        [void]$xml.AppendLine("      <Command Condition=`"'`$(Configuration)|`$(Platform)'=='Debug|Win32'`">$([System.Security.SecurityElement]::Escape($wavePixelDebugCommand))</Command>")
+        [void]$xml.AppendLine("      <Outputs Condition=`"'`$(Configuration)|`$(Platform)'=='Debug|Win32'`">`$(SolutionDir)..\Run\Shaders\wave.pso</Outputs>")
+        [void]$xml.AppendLine("      <Command Condition=`"'`$(Configuration)|`$(Platform)'=='Release|Win32'`">$([System.Security.SecurityElement]::Escape($wavePixelReleaseCommand))</Command>")
+        [void]$xml.AppendLine("      <Outputs Condition=`"'`$(Configuration)|`$(Platform)'=='Release|Win32'`">`$(SolutionDir)..\Run\wave.pso</Outputs>")
+        [void]$xml.AppendLine('      <Message>Compile NVASM pixel shader</Message>')
+        [void]$xml.AppendLine('    </CustomBuild>')
+        [void]$xml.AppendLine("    <CustomBuild Include=`"$waveNvvPath`">")
+        [void]$xml.AppendLine("      <Command Condition=`"'`$(Configuration)|`$(Platform)'=='Debug|Win32'`">$([System.Security.SecurityElement]::Escape($waveVertexDebugCommand))</Command>")
+        [void]$xml.AppendLine("      <Outputs Condition=`"'`$(Configuration)|`$(Platform)'=='Debug|Win32'`">`$(SolutionDir)..\Run\Shaders\wave.vso</Outputs>")
+        [void]$xml.AppendLine("      <Command Condition=`"'`$(Configuration)|`$(Platform)'=='Release|Win32'`">$([System.Security.SecurityElement]::Escape($waveVertexReleaseCommand))</Command>")
+        [void]$xml.AppendLine("      <Outputs Condition=`"'`$(Configuration)|`$(Platform)'=='Release|Win32'`">`$(SolutionDir)..\Run\wave.vso</Outputs>")
+        [void]$xml.AppendLine('      <Message>Compile NVASM vertex shader</Message>')
+        [void]$xml.AppendLine('    </CustomBuild>')
         [void]$xml.AppendLine('  </ItemGroup>')
     }
 

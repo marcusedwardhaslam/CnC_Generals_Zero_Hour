@@ -48,6 +48,9 @@
       <AdditionalIncludeDirectories>Libraries\Include;GameEngine\Include;gameenginedevice\Include;Libraries\Source\WWVegas;Libraries\Source\WWVegas\WWLib;Libraries\Source\WWVegas\WWMath;Libraries\Source\WWVegas\WWDebug;Libraries\Source\WWVegas\WWSaveLoad;Libraries\Source\WWVegas\WW3D2;Libraries\Include\Granny;$(IncludePath)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_MBCS;BROWSER_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <PreBuildEvent>
+      <Command>if exist &quot;$(SolutionDir)..\Run\versionUpdate.exe&quot; if exist &quot;$(SolutionDir)..\Run\buildVersionUpdate.exe&quot; ( &quot;$(SolutionDir)..\Run\versionUpdate.exe&quot; &quot;$(ProjectDir)Main\generatedVersion.h&quot; &amp; &quot;$(SolutionDir)..\Run\buildVersionUpdate.exe&quot; &quot;$(ProjectDir)Main\buildVersion.h&quot; ) else ( echo ERROR: Missing version update tools in $(SolutionDir)..\Run &amp; exit /b 1 )</Command>
+    </PreBuildEvent>
     <Link>
       <AdditionalDependencies>BenchmarkD.lib;WW3D2Debug.lib;WWDebugDebug.lib;WWUtilDebug.lib;WWLibDebug.lib;WWMathDebug.lib;GameEngineDebug.lib;GameEngineDeviceDebug.lib;binkw32.lib;dxguid.lib;dinput8.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3dx8.lib;mss32.lib;d3d8.lib;winmm.lib;vfw32.lib;dsound.lib;wsock32.lib;imm32.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>GameEngine;GameEngine\Lib;GameEngineDevice\Lib;Libraries\Lib;$(LibraryPath)</AdditionalLibraryDirectories>
@@ -67,6 +70,9 @@
       <AdditionalIncludeDirectories>Libraries\Include;GameEngine\Include;gameenginedevice\Include;Libraries\Source\WWVegas;Libraries\Source\WWVegas\WWLib;Libraries\Source\WWVegas\WWMath;Libraries\Source\WWVegas\WWDebug;Libraries\Source\WWVegas\WWSaveLoad;Libraries\Source\WWVegas\WW3D2;Libraries\Include\Granny;$(IncludePath)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>IG_DEBUG_STACKTRACE;NDEBUG;_RELEASE;WIN32;_WINDOWS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <PreBuildEvent>
+      <Command>if exist &quot;$(SolutionDir)..\Run\versionUpdate.exe&quot; if exist &quot;$(SolutionDir)..\Run\buildVersionUpdate.exe&quot; ( &quot;$(SolutionDir)..\Run\versionUpdate.exe&quot; &quot;$(ProjectDir)Main\generatedVersion.h&quot; &amp; &quot;$(SolutionDir)..\Run\buildVersionUpdate.exe&quot; &quot;$(ProjectDir)Main\buildVersion.h&quot; ) else ( echo ERROR: Missing version update tools in $(SolutionDir)..\Run &amp; exit /b 1 )</Command>
+    </PreBuildEvent>
     <Link>
       <AdditionalDependencies>Benchmark.lib;WW3D2.lib;WWDebug.lib;WWLib.lib;WWUtil.lib;WWMath.lib;GameEngine.lib;GameEngineDevice.lib;binkw32.lib;dxguid.lib;dinput8.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3dx8.lib;mss32.lib;d3d8.lib;winmm.lib;vfw32.lib;dsound.lib;wsock32.lib;imm32.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\GameEngine;GameEngine\Lib;GameEngineDevice\Lib;Libraries\Lib;GameEngine;$(LibraryPath)</AdditionalLibraryDirectories>

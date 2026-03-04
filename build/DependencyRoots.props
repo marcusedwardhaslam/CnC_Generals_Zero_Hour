@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <CNCGZH_DEP_DXSDK Condition="'$(CNCGZH_DEP_DXSDK)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_DXSDK'))</CNCGZH_DEP_DXSDK>
+    <CNCGZH_DEP_STLPORT Condition="'$(CNCGZH_DEP_STLPORT)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_STLPORT'))</CNCGZH_DEP_STLPORT>
+    <CNCGZH_DEP_MAX4SDK Condition="'$(CNCGZH_DEP_MAX4SDK)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_MAX4SDK'))</CNCGZH_DEP_MAX4SDK>
+    <CNCGZH_DEP_NVASM Condition="'$(CNCGZH_DEP_NVASM)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_NVASM'))</CNCGZH_DEP_NVASM>
+    <CNCGZH_DEP_BENCHMARK Condition="'$(CNCGZH_DEP_BENCHMARK)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_BENCHMARK'))</CNCGZH_DEP_BENCHMARK>
+    <CNCGZH_DEP_MILES6 Condition="'$(CNCGZH_DEP_MILES6)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_MILES6'))</CNCGZH_DEP_MILES6>
+    <CNCGZH_DEP_BINK Condition="'$(CNCGZH_DEP_BINK)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_BINK'))</CNCGZH_DEP_BINK>
+    <CNCGZH_DEP_SAFEDISK_COMMON Condition="'$(CNCGZH_DEP_SAFEDISK_COMMON)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_SAFEDISK_COMMON'))</CNCGZH_DEP_SAFEDISK_COMMON>
+    <CNCGZH_DEP_SAFEDISK_LAUNCHER Condition="'$(CNCGZH_DEP_SAFEDISK_LAUNCHER)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_SAFEDISK_LAUNCHER'))</CNCGZH_DEP_SAFEDISK_LAUNCHER>
+    <CNCGZH_DEP_ASIMP3 Condition="'$(CNCGZH_DEP_ASIMP3)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_ASIMP3'))</CNCGZH_DEP_ASIMP3>
+    <CNCGZH_DEP_GAMESPY Condition="'$(CNCGZH_DEP_GAMESPY)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_GAMESPY'))</CNCGZH_DEP_GAMESPY>
+    <CNCGZH_DEP_ZLIB Condition="'$(CNCGZH_DEP_ZLIB)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_ZLIB'))</CNCGZH_DEP_ZLIB>
+    <CNCGZH_DEP_LZH_SRC Condition="'$(CNCGZH_DEP_LZH_SRC)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_LZH_SRC'))</CNCGZH_DEP_LZH_SRC>
+    <CNCGZH_DEP_LZH_HDR Condition="'$(CNCGZH_DEP_LZH_HDR)'==''">$([System.Environment]::GetEnvironmentVariable('CNCGZH_DEP_LZH_HDR'))</CNCGZH_DEP_LZH_HDR>
+  </PropertyGroup>
+</Project>

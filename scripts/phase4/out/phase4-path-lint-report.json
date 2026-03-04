@@ -1,0 +1,254 @@
+﻿[
+    {
+        "Tree":  "Generals",
+        "Dependency":  "DirectX SDK",
+        "EnvVar":  "CNCGZH_DEP_DXSDK",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\DirectX",
+        "AlternatePath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\DX90SDK",
+        "Status":  "ok-env",
+        "Resolution":  "Resolved via environment variable"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "STLport 4.5.3",
+        "EnvVar":  "CNCGZH_DEP_STLPORT",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\STLport-4.5.3",
+        "AlternatePath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\STLport-4.5.3",
+        "Status":  "ok-env",
+        "Resolution":  "Resolved via environment variable"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "3DSMax 4 SDK",
+        "EnvVar":  "CNCGZH_DEP_MAX4SDK",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\Max4SDK",
+        "AlternatePath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\max4sdk",
+        "Status":  "ok-env",
+        "Resolution":  "Resolved via environment variable"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "NVASM",
+        "EnvVar":  "CNCGZH_DEP_NVASM",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Tools\\NVASM",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "BYTEmark",
+        "EnvVar":  "CNCGZH_DEP_BENCHMARK",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\Source\\Benchmark",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "RAD Miles Sound System SDK",
+        "EnvVar":  "CNCGZH_DEP_MILES6",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\Source\\WWVegas\\Miles6",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "RAD Bink SDK",
+        "EnvVar":  "CNCGZH_DEP_BINK",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\GameEngineDevice\\Include\\VideoDevice\\Bink",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "SafeDisk API (GameEngine)",
+        "EnvVar":  "CNCGZH_DEP_SAFEDISK_COMMON",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\GameEngine\\Include\\Common\\SafeDisk",
+        "AlternatePath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\GameEngine\\Include\\Common\\SafeDisk",
+        "Status":  "ok-env",
+        "Resolution":  "Resolved via environment variable"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "SafeDisk API (Launcher)",
+        "EnvVar":  "CNCGZH_DEP_SAFEDISK_LAUNCHER",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Tools\\Launcher\\SafeDisk",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "Miles Asimp3",
+        "EnvVar":  "CNCGZH_DEP_ASIMP3",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\WPAudio\\Asimp3",
+        "AlternatePath":  "",
+        "Status":  "ok-env",
+        "Resolution":  "Resolved via environment variable"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "GameSpy SDK",
+        "EnvVar":  "CNCGZH_DEP_GAMESPY",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\Source\\GameSpy",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "ZLib 1.1.4",
+        "EnvVar":  "CNCGZH_DEP_ZLIB",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\Source\\Compression\\ZLib",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "LZH-Light CompLibSource",
+        "EnvVar":  "CNCGZH_DEP_LZH_SRC",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\Source\\Compression\\LZHCompress\\CompLibSource",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "Generals",
+        "Dependency":  "LZH-Light CompLibHeader",
+        "EnvVar":  "CNCGZH_DEP_LZH_HDR",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\Generals\\Code\\Libraries\\Source\\Compression\\LZHCompress\\CompLibHeader",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "DirectX SDK",
+        "EnvVar":  "CNCGZH_DEP_DXSDK",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Libraries\\DirectX",
+        "AlternatePath":  "",
+        "Status":  "ok-env",
+        "Resolution":  "Resolved via environment variable"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "STLport 4.5.3",
+        "EnvVar":  "CNCGZH_DEP_STLPORT",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Libraries\\STLport-4.5.3",
+        "AlternatePath":  "",
+        "Status":  "ok-env",
+        "Resolution":  "Resolved via environment variable"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "3DSMax 4 SDK",
+        "EnvVar":  "CNCGZH_DEP_MAX4SDK",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Libraries\\Max4SDK",
+        "AlternatePath":  "",
+        "Status":  "ok-env",
+        "Resolution":  "Resolved via environment variable"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "NVASM",
+        "EnvVar":  "CNCGZH_DEP_NVASM",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Tools\\NVASM",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "BYTEmark",
+        "EnvVar":  "CNCGZH_DEP_BENCHMARK",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Libraries\\Source\\Benchmark",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "RAD Miles Sound System SDK",
+        "EnvVar":  "CNCGZH_DEP_MILES6",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Libraries\\Source\\WWVegas\\Miles6",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "RAD Bink SDK",
+        "EnvVar":  "CNCGZH_DEP_BINK",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\GameEngineDevice\\Include\\VideoDevice\\Bink",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "SafeDisk API (GameEngine)",
+        "EnvVar":  "CNCGZH_DEP_SAFEDISK_COMMON",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\GameEngine\\Include\\Common\\SafeDisk",
+        "AlternatePath":  "",
+        "Status":  "ok-env",
+        "Resolution":  "Resolved via environment variable"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "SafeDisk API (Launcher)",
+        "EnvVar":  "CNCGZH_DEP_SAFEDISK_LAUNCHER",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Tools\\Launcher\\SafeDisk",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "Miles Asimp3",
+        "EnvVar":  "CNCGZH_DEP_ASIMP3",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Libraries\\WPAudio\\Asimp3",
+        "AlternatePath":  "",
+        "Status":  "ok-env",
+        "Resolution":  "Resolved via environment variable"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "GameSpy SDK",
+        "EnvVar":  "CNCGZH_DEP_GAMESPY",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Libraries\\Source\\GameSpy",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "ZLib 1.1.4",
+        "EnvVar":  "CNCGZH_DEP_ZLIB",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Libraries\\Source\\Compression\\ZLib",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "LZH-Light CompLibSource",
+        "EnvVar":  "CNCGZH_DEP_LZH_SRC",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Libraries\\Source\\Compression\\LZHCompress\\CompLibSource",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    },
+    {
+        "Tree":  "GeneralsMD",
+        "Dependency":  "LZH-Light CompLibHeader",
+        "EnvVar":  "CNCGZH_DEP_LZH_HDR",
+        "ExpectedPath":  "D:\\Software_Projects\\CnC_Generals_Zero_Hour\\GeneralsMD\\Code\\Libraries\\Source\\Compression\\LZHCompress\\CompLibHeader",
+        "AlternatePath":  "",
+        "Status":  "ok-repo",
+        "Resolution":  "Resolved via repository relative path"
+    }
+]

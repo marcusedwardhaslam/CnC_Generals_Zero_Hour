@@ -1,0 +1,102 @@
+{
+  "dependencies": [
+    {
+      "id": "dxsdk",
+      "label": "DirectX SDK",
+      "envVar": "CNCGZH_DEP_DXSDK",
+      "relativeExpected": "Libraries/DirectX",
+      "alternates": ["Libraries/DX90SDK"]
+    },
+    {
+      "id": "stlport",
+      "label": "STLport 4.5.3",
+      "envVar": "CNCGZH_DEP_STLPORT",
+      "relativeExpected": "Libraries/STLport-4.5.3",
+      "alternates": ["Libraries/STLport-4.5.3"]
+    },
+    {
+      "id": "max4sdk",
+      "label": "3DSMax 4 SDK",
+      "envVar": "CNCGZH_DEP_MAX4SDK",
+      "relativeExpected": "Libraries/Max4SDK",
+      "alternates": ["Libraries/max4sdk"]
+    },
+    {
+      "id": "nvasm",
+      "label": "NVASM",
+      "envVar": "CNCGZH_DEP_NVASM",
+      "relativeExpected": "Tools/NVASM",
+      "alternates": ["Tools/NVASM"]
+    },
+    {
+      "id": "benchmark",
+      "label": "BYTEmark",
+      "envVar": "CNCGZH_DEP_BENCHMARK",
+      "relativeExpected": "Libraries/Source/Benchmark",
+      "alternates": ["Libraries/Source/Benchmark"]
+    },
+    {
+      "id": "miles6",
+      "label": "RAD Miles Sound System SDK",
+      "envVar": "CNCGZH_DEP_MILES6",
+      "relativeExpected": "Libraries/Source/WWVegas/Miles6",
+      "alternates": ["Libraries/Source/WWVegas/Miles6"]
+    },
+    {
+      "id": "bink",
+      "label": "RAD Bink SDK",
+      "envVar": "CNCGZH_DEP_BINK",
+      "relativeExpected": "GameEngineDevice/Include/VideoDevice/Bink",
+      "alternates": ["GameEngineDevice/Include/VideoDevice/Bink"]
+    },
+    {
+      "id": "safedisk_common",
+      "label": "SafeDisk API (GameEngine)",
+      "envVar": "CNCGZH_DEP_SAFEDISK_COMMON",
+      "relativeExpected": "GameEngine/Include/Common/SafeDisk",
+      "alternates": ["GameEngine/Include/Common/SafeDisk"]
+    },
+    {
+      "id": "safedisk_launcher",
+      "label": "SafeDisk API (Launcher)",
+      "envVar": "CNCGZH_DEP_SAFEDISK_LAUNCHER",
+      "relativeExpected": "Tools/Launcher/SafeDisk",
+      "alternates": ["Tools/Launcher/SafeDisk"]
+    },
+    {
+      "id": "asimp3",
+      "label": "Miles Asimp3",
+      "envVar": "CNCGZH_DEP_ASIMP3",
+      "relativeExpected": "Libraries/WPAudio/Asimp3",
+      "alternates": ["Libraries/WPAudio/Asimp3"]
+    },
+    {
+      "id": "gamespy",
+      "label": "GameSpy SDK",
+      "envVar": "CNCGZH_DEP_GAMESPY",
+      "relativeExpected": "Libraries/Source/GameSpy",
+      "alternates": ["Libraries/Source/GameSpy"]
+    },
+    {
+      "id": "zlib",
+      "label": "ZLib 1.1.4",
+      "envVar": "CNCGZH_DEP_ZLIB",
+      "relativeExpected": "Libraries/Source/Compression/ZLib",
+      "alternates": ["Libraries/Source/Compression/ZLib"]
+    },
+    {
+      "id": "lzh_comp_src",
+      "label": "LZH-Light CompLibSource",
+      "envVar": "CNCGZH_DEP_LZH_SRC",
+      "relativeExpected": "Libraries/Source/Compression/LZHCompress/CompLibSource",
+      "alternates": ["Libraries/Source/Compression/LZHCompress/CompLibSource"]
+    },
+    {
+      "id": "lzh_comp_hdr",
+      "label": "LZH-Light CompLibHeader",
+      "envVar": "CNCGZH_DEP_LZH_HDR",
+      "relativeExpected": "Libraries/Source/Compression/LZHCompress/CompLibHeader",
+      "alternates": ["Libraries/Source/Compression/LZHCompress/CompLibHeader"]
+    }
+  ]
+}

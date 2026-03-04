@@ -254,8 +254,22 @@
     <None Include=".\Source\W3DDevice\GameClient\Shaders\terrain.nvp" />
     <None Include=".\Source\W3DDevice\GameClient\Shaders\terrainnoise.nvp" />
     <None Include=".\Source\W3DDevice\GameClient\Shaders\terrainnoise2.nvp" />
-    <None Include=".\Source\W3DDevice\GameClient\Water\wave.nvp" />
-    <None Include=".\Source\W3DDevice\GameClient\Water\wave.nvv" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include=".\Source\W3DDevice\GameClient\Water\wave.nvp">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">if not exist &quot;$(SolutionDir)..\Run\Shaders&quot; mkdir &quot;$(SolutionDir)..\Run\Shaders&quot; &amp; if exist &quot;$(SolutionDir)Tools\NVASM\nvasm.exe&quot; ( &quot;$(SolutionDir)Tools\NVASM\nvasm.exe&quot; -d &quot;%(FullPath)&quot; &quot;$(SolutionDir)..\Run\Shaders\wave.pso&quot; ) else ( echo ERROR: Missing NVASM tool at $(SolutionDir)Tools\NVASM\nvasm.exe &amp; exit /b 1 )</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\Run\Shaders\wave.pso</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">if exist &quot;$(SolutionDir)Tools\NVASM\nvasm.exe&quot; ( &quot;$(SolutionDir)Tools\NVASM\nvasm.exe&quot; -d &quot;%(FullPath)&quot; &quot;$(SolutionDir)..\Run\wave.pso&quot; ) else ( echo ERROR: Missing NVASM tool at $(SolutionDir)Tools\NVASM\nvasm.exe &amp; exit /b 1 )</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\Run\wave.pso</Outputs>
+      <Message>Compile NVASM pixel shader</Message>
+    </CustomBuild>
+    <CustomBuild Include=".\Source\W3DDevice\GameClient\Water\wave.nvv">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">if not exist &quot;$(SolutionDir)..\Run\Shaders&quot; mkdir &quot;$(SolutionDir)..\Run\Shaders&quot; &amp; if exist &quot;$(SolutionDir)Tools\NVASM\nvasm.exe&quot; ( &quot;$(SolutionDir)Tools\NVASM\nvasm.exe&quot; -d &quot;%(FullPath)&quot; &quot;$(SolutionDir)..\Run\Shaders\wave.vso&quot; ) else ( echo ERROR: Missing NVASM tool at $(SolutionDir)Tools\NVASM\nvasm.exe &amp; exit /b 1 )</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\Run\Shaders\wave.vso</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">if exist &quot;$(SolutionDir)Tools\NVASM\nvasm.exe&quot; ( &quot;$(SolutionDir)Tools\NVASM\nvasm.exe&quot; -d &quot;%(FullPath)&quot; &quot;$(SolutionDir)..\Run\wave.vso&quot; ) else ( echo ERROR: Missing NVASM tool at $(SolutionDir)Tools\NVASM\nvasm.exe &amp; exit /b 1 )</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\Run\wave.vso</Outputs>
+      <Message>Compile NVASM vertex shader</Message>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>
