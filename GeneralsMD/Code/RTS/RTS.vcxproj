@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D98C1DD4-008F-04B2-E980-0998ECF8427E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>RTS</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>Main\Debug\\</OutDir>
+    <IntDir>Main\Debug\\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>Main\Release\\</OutDir>
+    <IntDir>Main\Release\\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>Libraries\Include;GameEngine\Include;gameenginedevice\Include;Libraries\Source\WWVegas;Libraries\Source\WWVegas\WWLib;Libraries\Source\WWVegas\WWMath;Libraries\Source\WWVegas\WWDebug;Libraries\Source\WWVegas\WWSaveLoad;Libraries\Source\WWVegas\WW3D2;Libraries\Include\Granny;$(IncludePath)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_MBCS;BROWSER_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>BenchmarkD.lib;WW3D2Debug.lib;WWDebugDebug.lib;WWUtilDebug.lib;WWLibDebug.lib;WWMathDebug.lib;GameEngineDebug.lib;GameEngineDeviceDebug.lib;binkw32.lib;dxguid.lib;dinput8.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3dx8.lib;mss32.lib;d3d8.lib;winmm.lib;vfw32.lib;dsound.lib;wsock32.lib;imm32.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>GameEngine;GameEngine\Lib;GameEngineDevice\Lib;Libraries\Lib;$(LibraryPath)</AdditionalLibraryDirectories>
+      <OutputFile>..\Run\RTSD.exe</OutputFile>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>Libraries\Include;GameEngine\Include;gameenginedevice\Include;Libraries\Source\WWVegas;Libraries\Source\WWVegas\WWLib;Libraries\Source\WWVegas\WWMath;Libraries\Source\WWVegas\WWDebug;Libraries\Source\WWVegas\WWSaveLoad;Libraries\Source\WWVegas\WW3D2;Libraries\Include\Granny;$(IncludePath)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>IG_DEBUG_STACKTRACE;NDEBUG;_RELEASE;WIN32;_WINDOWS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Benchmark.lib;WW3D2.lib;WWDebug.lib;WWLib.lib;WWUtil.lib;WWMath.lib;GameEngine.lib;GameEngineDevice.lib;binkw32.lib;dxguid.lib;dinput8.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3dx8.lib;mss32.lib;d3d8.lib;winmm.lib;vfw32.lib;dsound.lib;wsock32.lib;imm32.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\GameEngine;GameEngine\Lib;GameEngineDevice\Lib;Libraries\Lib;GameEngine;$(LibraryPath)</AdditionalLibraryDirectories>
+      <OutputFile>..\Run\RTS.exe</OutputFile>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include=".\Main\WinMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\Main\buildVersion.h" />
+    <ClInclude Include=".\Main\generatedVersion.h" />
+    <ClInclude Include=".\Main\resource.h" />
+    <ClInclude Include=".\Main\WinMain.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include=".\Main\RTS.RC" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Run\Data\English\HeaderTemplate.ini" />
+    <None Include="..\Run\Data\English\Language.ini" />
+    <None Include="..\Run\Data\Generals.str" />
+    <None Include="..\Run\Data\INI\AIData.ini" />
+    <None Include="..\Run\Data\INI\Animation2D.ini" />
+    <None Include="..\Run\Data\INI\Armor.ini" />
+    <None Include="..\Run\Data\INI\AudioSettings.ini" />
+    <None Include="..\Run\Data\INI\Campaign.ini" />
+    <None Include="..\Run\Data\INI\CommandButton.ini" />
+    <None Include="..\Run\Data\INI\CommandMap.ini" />
+    <None Include="..\Run\Data\INI\CommandMapDebug.ini" />
+    <None Include="..\Run\Data\INI\CommandMapDemo.ini" />
+    <None Include="..\Run\Data\INI\CommandSet.ini" />
+    <None Include="..\Run\Data\INI\ControlBarResizer.ini" />
+    <None Include="..\Run\Data\INI\ControlBarScheme.ini" />
+    <None Include="..\Run\Data\INI\Crate.ini" />
+    <None Include="..\Run\Data\INI\Credits.ini" />
+    <None Include="..\Run\Data\INI\DamageFX.ini" />
+    <None Include="..\Run\Data\INI\Default\AIData.ini" />
+    <None Include="..\Run\Data\INI\Default\ButtonSets.ini" />
+    <None Include="..\Run\Data\INI\Default\CommandButton.ini" />
+    <None Include="..\Run\Data\INI\Default\ControlBarScheme.ini" />
+    <None Include="..\Run\Data\INI\Default\Crate.ini" />
+    <None Include="..\Run\Data\INI\Default\FXList.ini" />
+    <None Include="..\Run\Data\INI\Default\GameData.ini" />
+    <None Include="..\Run\Data\INI\Default\multiplayer.ini" />
+    <None Include="..\Run\Data\INI\Default\Music.ini" />
+    <None Include="..\Run\Data\INI\Default\Object.ini" />
+    <None Include="..\Run\Data\INI\Default\ObjectCreationList.ini" />
+    <None Include="..\Run\Data\INI\Default\PlayerTemplate.ini" />
+    <None Include="..\Run\Data\INI\Default\Roads.ini" />
+    <None Include="..\Run\Data\INI\Default\Science.ini" />
+    <None Include="..\Run\Data\INI\Default\ShellMenuScheme.ini" />
+    <None Include="..\Run\Data\INI\Default\SoundEffects.ini" />
+    <None Include="..\Run\Data\INI\Default\SpecialPower.ini" />
+    <None Include="..\Run\Data\INI\Default\Speech.ini" />
+    <None Include="..\Run\Data\INI\Default\Terrain.ini" />
+    <None Include="..\Run\Data\INI\Default\Upgrade.ini" />
+    <None Include="..\Run\Data\INI\Default\Video.ini" />
+    <None Include="..\Run\Data\INI\Default\Voice.ini" />
+    <None Include="..\Run\Data\INI\Default\Water.ini" />
+    <None Include="..\Run\Data\INI\Default\Weather.ini" />
+    <None Include="..\Run\Data\INI\Default\Webpages.ini" />
+    <None Include="..\Run\Data\INI\DrawGroupInfo.ini" />
+    <None Include="..\Run\Data\INI\Eva.ini" />
+    <None Include="..\Run\Data\INI\FXList.ini" />
+    <None Include="..\Run\Data\INI\GameData.ini" />
+    <None Include="..\Run\Data\INI\GameDataDebug.ini" />
+    <None Include="..\Run\Data\INI\GameLOD.ini" />
+    <None Include="..\Run\Data\INI\GameLODPresets.ini" />
+    <None Include="..\Run\Data\INI\InGameUI.ini" />
+    <None Include="..\Run\Data\INI\Locomotor.ini" />
+    <None Include="..\Run\Data\INI\MappedImages\HandCreated\HandCreatedMappedImages.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\HandCreatedMappedImages.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SAControlBar512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SAUserInterface512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SCGameUserInterface512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SCGeneralsChallenge512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SCLogosUserInterface512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SCShellUserInterface512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SCSmShellUserInterface512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SCUserInterface512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SNControlBar512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SNUserInterface512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SSUserInterface512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SUControlBar512.INI" />
+    <None Include="..\Run\Data\INI\MappedImages\TextureSize_512\SUUserInterface512.INI" />
+    <None Include="..\Run\Data\INI\MiscAudio.ini" />
+    <None Include="..\Run\Data\INI\Mouse.ini" />
+    <None Include="..\Run\Data\INI\Multiplayer.ini" />
+    <None Include="..\Run\Data\INI\Music.ini" />
+    <None Include="..\Run\Data\INI\Object\AirforceGeneral.ini" />
+    <None Include="..\Run\Data\INI\Object\AmericaAir.ini" />
+    <None Include="..\Run\Data\INI\Object\AmericaCINEUnit.ini" />
+    <None Include="..\Run\Data\INI\Object\AmericaInfantry.ini" />
+    <None Include="..\Run\Data\INI\Object\AmericaMiscUnit.ini" />
+    <None Include="..\Run\Data\INI\Object\AmericaVehicle.ini" />
+    <None Include="..\Run\Data\INI\Object\BossGeneral.ini" />
+    <None Include="..\Run\Data\INI\Object\ChemicalGeneral.ini" />
+    <None Include="..\Run\Data\INI\Object\ChinaAir.ini" />
+    <None Include="..\Run\Data\INI\Object\ChinaCINEUnit.ini" />
+    <None Include="..\Run\Data\INI\Object\ChinaInfantry.ini" />
+    <None Include="..\Run\Data\INI\Object\ChinaMiscUnit.ini" />
+    <None Include="..\Run\Data\INI\Object\ChinaVehicle.ini" />
+    <None Include="..\Run\Data\INI\Object\CivilianBuilding.ini" />
+    <None Include="..\Run\Data\INI\Object\CivilianProp.ini" />
+    <None Include="..\Run\Data\INI\Object\CivilianUnit.ini" />
+    <None Include="..\Run\Data\INI\Object\DemoGeneral.ini" />
+    <None Include="..\Run\Data\INI\Object\FactionBuilding.ini" />
+    <None Include="..\Run\Data\INI\Object\FactionProp.ini" />
+    <None Include="..\Run\Data\INI\Object\FactionUnit.ini" />
+    <None Include="..\Run\Data\INI\Object\GC_Chem_GLABuildings.ini" />
+    <None Include="..\Run\Data\INI\Object\GC_Chem_GLASystem.ini" />
+    <None Include="..\Run\Data\INI\Object\GC_Chem_GLAUnits.ini" />
+    <None Include="..\Run\Data\INI\Object\GC_Slth_GLABuildings.ini" />
+    <None Include="..\Run\Data\INI\Object\GC_Slth_GLASystem.ini" />
+    <None Include="..\Run\Data\INI\Object\GC_Slth_GLAUnits.ini" />
+    <None Include="..\Run\Data\INI\Object\GLAAir.ini" />
+    <None Include="..\Run\Data\INI\Object\GLACINEUnit.ini" />
+    <None Include="..\Run\Data\INI\Object\GLAInfantry.ini" />
+    <None Include="..\Run\Data\INI\Object\GLAMiscUnit.ini" />
+    <None Include="..\Run\Data\INI\Object\GLAVehicle.ini" />
+    <None Include="..\Run\Data\INI\Object\Hulk.ini" />
+    <None Include="..\Run\Data\INI\Object\InfantryGeneral.ini" />
+    <None Include="..\Run\Data\INI\Object\LaserGeneral.ini" />
+    <None Include="..\Run\Data\INI\Object\NatureProp.ini" />
+    <None Include="..\Run\Data\INI\Object\NatureUnit.ini" />
+    <None Include="..\Run\Data\INI\Object\NukeGeneral.ini" />
+    <None Include="..\Run\Data\INI\Object\SpecialPowerObjects.ini" />
+    <None Include="..\Run\Data\INI\Object\StealthGeneral.ini" />
+    <None Include="..\Run\Data\INI\Object\SuperWeaponGeneral.ini" />
+    <None Include="..\Run\Data\INI\Object\System.ini" />
+    <None Include="..\Run\Data\INI\Object\TankGeneral.ini" />
+    <None Include="..\Run\Data\INI\Object\TechBuildings.ini" />
+    <None Include="..\Run\Data\INI\Object\WeaponObjects.ini" />
+    <None Include="..\Run\Data\INI\ObjectCreationList.ini" />
+    <None Include="..\Run\Data\INI\ParticleSystem.ini" />
+    <None Include="..\Run\Data\INI\PlayerTemplate.ini" />
+    <None Include="..\Run\Data\INI\Rank.ini" />
+    <None Include="..\Run\Data\INI\Roads.ini" />
+    <None Include="..\Run\Data\INI\Science.ini" />
+    <None Include="..\Run\Data\INI\ShellMenuScheme.ini" />
+    <None Include="..\Run\Data\INI\SoundEffects.ini" />
+    <None Include="..\Run\Data\INI\SpecialPower.ini" />
+    <None Include="..\Run\Data\INI\Speech.ini" />
+    <None Include="..\Run\Data\INI\Terrain.ini" />
+    <None Include="..\Run\Data\INI\Upgrade.ini" />
+    <None Include="..\Run\Data\INI\Video.ini" />
+    <None Include="..\Run\Data\INI\Voice.ini" />
+    <None Include="..\Run\Data\INI\Water.ini" />
+    <None Include="..\Run\Data\INI\Weapon.ini" />
+    <None Include="..\Run\Data\INI\Weather.ini" />
+    <None Include="..\Run\Data\INI\Webpages.ini" />
+    <None Include="..\Run\Data\INI\WindowTransitions.ini" />
+    <None Include="..\Run\Data\Scripts\Scripts.ini" />
+    <None Include="..\Run\Window\ControlBar.wnd" />
+    <None Include="..\Run\Window\ControlBarPopupDescription.wnd" />
+    <None Include="..\Run\Window\Diplomacy.wnd" />
+    <None Include="..\Run\Window\GeneralsExpPoints.wnd" />
+    <None Include="..\Run\Window\GenPowersShortcutBarChina.wnd" />
+    <None Include="..\Run\Window\GenPowersShortcutBarGLA.wnd" />
+    <None Include="..\Run\Window\GenPowersShortcutBarUS.wnd" />
+    <None Include="..\Run\Window\IMECandidateWindow.wnd" />
+    <None Include="..\Run\Window\IMEStatusWindow.wnd" />
+    <None Include="..\Run\Window\InGamePopupMessage.wnd" />
+    <None Include="..\Run\Window\Menus\BlankWindow.wnd" />
+    <None Include="..\Run\Window\Menus\ChallengeMenu.wnd" />
+    <None Include="..\Run\Window\Menus\CRCMismatch.wnd" />
+    <None Include="..\Run\Window\Menus\CreditsMenu.wnd" />
+    <None Include="..\Run\Window\Menus\Defeat.wnd" />
+    <None Include="..\Run\Window\Menus\DifficultySelect.wnd" />
+    <None Include="..\Run\Window\Menus\DisconnectScreen.wnd" />
+    <None Include="..\Run\Window\Menus\DownloadMenu.wnd" />
+    <None Include="..\Run\Window\Menus\EstablishConnectionsScreen.wnd" />
+    <None Include="..\Run\Window\Menus\GameInfoWindow.wnd" />
+    <None Include="..\Run\Window\Menus\GameSpyGameOptionsMenu.wnd" />
+    <None Include="..\Run\Window\Menus\GameSpyLoadScreen.wnd" />
+    <None Include="..\Run\Window\Menus\GameSpyLoginProfile.wnd" />
+    <None Include="..\Run\Window\Menus\GameSpyLoginQuick.wnd" />
+    <None Include="..\Run\Window\Menus\LanGameOptionsMenu.wnd" />
+    <None Include="..\Run\Window\Menus\LanLobbyMenu.wnd" />
+    <None Include="..\Run\Window\Menus\LanMapSelectMenu.wnd" />
+    <None Include="..\Run\Window\Menus\LocalDefeat.wnd" />
+    <None Include="..\Run\Window\Menus\MainMenu.wnd" />
+    <None Include="..\Run\Window\Menus\MapSelectMenu.wnd" />
+    <None Include="..\Run\Window\Menus\MapTransferScreen.wnd" />
+    <None Include="..\Run\Window\Menus\MessageBox.wnd" />
+    <None Include="..\Run\Window\Menus\MultiplayerLoadScreen.wnd" />
+    <None Include="..\Run\Window\Menus\NetworkDirectConnect.wnd" />
+    <None Include="..\Run\Window\Menus\ObserverQuit.wnd" />
+    <None Include="..\Run\Window\Menus\OptionsMenu.wnd" />
+    <None Include="..\Run\Window\Menus\PopupCommunicator.wnd" />
+    <None Include="..\Run\Window\Menus\PopupGameSpyCreateGame.wnd" />
+    <None Include="..\Run\Window\Menus\PopupHostGame.wnd" />
+    <None Include="..\Run\Window\Menus\PopupJoinGame.wnd" />
+    <None Include="..\Run\Window\Menus\PopupLadderDetails.wnd" />
+    <None Include="..\Run\Window\Menus\PopupLadderSelect.wnd" />
+    <None Include="..\Run\Window\Menus\PopupLocaleSelect.wnd" />
+    <None Include="..\Run\Window\Menus\PopupPlayerInfo.wnd" />
+    <None Include="..\Run\Window\Menus\PopupReplay.wnd" />
+    <None Include="..\Run\Window\Menus\PopupSaveLoad.wnd" />
+    <None Include="..\Run\Window\Menus\QuitMenu.wnd" />
+    <None Include="..\Run\Window\Menus\QuitMessageBox.wnd" />
+    <None Include="..\Run\Window\Menus\QuitNoSave.wnd" />
+    <None Include="..\Run\Window\Menus\RCBuddiesMenu.wnd" />
+    <None Include="..\Run\Window\Menus\RCBuddyRequestMenu.wnd" />
+    <None Include="..\Run\Window\Menus\RCGameDetailsMenu.wnd" />
+    <None Include="..\Run\Window\Menus\RCLocalPlayerMenu.wnd" />
+    <None Include="..\Run\Window\Menus\RCNonBuddiesMenu.wnd" />
+    <None Include="..\Run\Window\Menus\RCNoProfileMenu.wnd" />
+    <None Include="..\Run\Window\Menus\ReplayMenu.wnd" />
+    <None Include="..\Run\Window\Menus\SaveLoad.wnd" />
+    <None Include="..\Run\Window\Menus\ScoreScreen.wnd" />
+    <None Include="..\Run\Window\Menus\ShellGameLoadScreen.wnd" />
+    <None Include="..\Run\Window\Menus\SinglePlayerLoadScreen.wnd" />
+    <None Include="..\Run\Window\Menus\SinglePlayerMenu.wnd" />
+    <None Include="..\Run\Window\Menus\SkirmishGameOptionsMenu.wnd" />
+    <None Include="..\Run\Window\Menus\SkirmishMapSelectMenu.wnd" />
+    <None Include="..\Run\Window\Menus\Victorious.wnd" />
+    <None Include="..\Run\Window\Menus\WOLBuddyOverlay.wnd" />
+    <None Include="..\Run\Window\Menus\WOLCustomLobby.wnd" />
+    <None Include="..\Run\Window\Menus\WOLLadderScreen.wnd" />
+    <None Include="..\Run\Window\Menus\WOLLoginMenu.wnd" />
+    <None Include="..\Run\Window\Menus\WOLMapSelectMenu.wnd" />
+    <None Include="..\Run\Window\Menus\WOLMessageWindow.wnd" />
+    <None Include="..\Run\Window\Menus\WOLQuickMatchMenu.wnd" />
+    <None Include="..\Run\Window\Menus\WOLStatusMenu.wnd" />
+    <None Include="..\Run\Window\Menus\WOLWelcomeMenu.wnd" />
+    <None Include="..\Run\Window\MOTD.wnd" />
+    <None Include="..\Run\Window\ReplayControl.wnd" />
+    <None Include=".\Main\Generals.ico" />
+    <None Include=".\Main\Install_Final.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameEngine\GameEngine.vcxproj">
+      <Project>{D98C1DD4-008F-04B2-E980-0998ECF8427E}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameEngineDevice\GameEngineDevice.vcxproj">
+      <Project>{D98C1DD4-008F-04B2-E980-0998ECF8427E}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
+

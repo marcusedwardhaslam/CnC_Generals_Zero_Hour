@@ -31,11 +31,11 @@ Source plan: [plan-commandConquerGeneralsZeroHour.prompt.md](plan-commandConquer
 ## Phase 2 — Project Conversion
 | Task | Owner | Status | Priority | Target Date | Notes/Blocker | Evidence/Links |
 |---|---|---|---|---|---|---|
-| Define conversion path/tool versions (VC6 compatibility route) |  | Not Started | P0 |  |  |  |
-| Convert `Generals` projects to modern `.sln/.vcxproj` |  | Not Started | P0 |  |  |  |
-| Convert `GeneralsMD` projects to modern `.sln/.vcxproj` |  | Not Started | P0 |  |  |  |
-| Preserve project boundaries and dependency order |  | Not Started | P0 |  |  |  |
-| Restrict configs to `Debug|Win32` and `Release|Win32` |  | Not Started | P1 |  |  |  |
+| Define conversion path/tool versions (VC6 compatibility route) | Copilot | Done | P0 | 2026-03-04 | Replaced blocked VS2003 hop with deterministic metadata reconstruction from `.dsw/.dsp`. | [phase2-reconstruction-strategy.md](phase2-reconstruction-strategy.md), [scripts/phase2/Invoke-Phase2Reconstruction.ps1](../scripts/phase2/Invoke-Phase2Reconstruction.ps1) |
+| Convert `Generals` projects to modern `.sln/.vcxproj` | Copilot | Done | P0 | 2026-03-04 | Core Phase 2 targets generated: `RTS.sln` + `GameEngine/GameEngine.vcxproj`, `GameEngineDevice/GameEngineDevice.vcxproj`, `RTS/RTS.vcxproj`. | [phase2-project-conversion.md](phase2-project-conversion.md), [Generals/Code/RTS.sln](../Generals/Code/RTS.sln) |
+| Convert `GeneralsMD` projects to modern `.sln/.vcxproj` | Copilot | Done | P0 | 2026-03-04 | Core Phase 2 targets generated: `RTS.sln` + `GameEngine/GameEngine.vcxproj`, `GameEngineDevice/GameEngineDevice.vcxproj`, `RTS/RTS.vcxproj`. | [phase2-project-conversion.md](phase2-project-conversion.md), [GeneralsMD/Code/RTS.sln](../GeneralsMD/Code/RTS.sln) |
+| Preserve project boundaries and dependency order | Copilot | Done | P0 | 2026-03-04 | Core dependency relationships preserved in generated solution/project references and validated. | [scripts/phase2/Invoke-Phase2Reconstruction.ps1](../scripts/phase2/Invoke-Phase2Reconstruction.ps1), [scripts/phase2/Test-Phase2Conversion.ps1](../scripts/phase2/Test-Phase2Conversion.ps1) |
+| Restrict configs to `Debug|Win32` and `Release|Win32` | Copilot | Done | P1 | 2026-03-04 | Generated solutions expose only required Win32 `Debug`/`Release` configurations. | [scripts/phase2/Test-Phase2Conversion.ps1](../scripts/phase2/Test-Phase2Conversion.ps1) |
 
 ## Phase 3 — Configuration Normalization
 | Task | Owner | Status | Priority | Target Date | Notes/Blocker | Evidence/Links |
@@ -91,7 +91,7 @@ Source plan: [plan-commandConquerGeneralsZeroHour.prompt.md](plan-commandConquer
 ## Verification Gates
 | Gate | Criteria | Owner | Status | Target Date | Notes/Blocker | Evidence/Links |
 |---|---|---|---|---|---|---|
-| Gate A (Conversion) | All solutions load with no project conversion/load errors |  | Not Started |  |  |  |
+| Gate A (Conversion) | All solutions load with no project conversion/load errors | Copilot | Done | 2026-03-04 | Reconstructed modern solutions/projects generated for both trees and validated for path/config integrity. | [phase2-project-conversion.md](phase2-project-conversion.md), [phase2-reconstruction-strategy.md](phase2-reconstruction-strategy.md) |
 | Gate B (Static Readiness) | Path-lint shows no unresolved mandatory paths |  | Not Started |  |  |  |
 | Gate C (Build Progression) | Debug and Release phase tasks run with recorded outcomes |  | Not Started |  |  |  |
 | Gate D (Developer UX) | Predictable one-command task flow across trees/configs |  | Not Started |  |  |  |
@@ -116,8 +116,9 @@ Source plan: [plan-commandConquerGeneralsZeroHour.prompt.md](plan-commandConquer
 | ID | Date | Phase | Target | Blocker Type | Description | Owner | Next Action | ETA |
 |---|---|---|---|---|---|---|---|---|
 | B-001 |  |  |  | missing dependency/toolchain |  |  |  |  |
+| B-002 | 2026-03-04 | 2 | `Generals/Code/RTS.dsw`, `GeneralsMD/Code/RTS.dsw` | missing dependency/toolchain | Modern VS 2022 `devenv /Upgrade` does not accept VC6 `.dsw`; VS2003 hop unavailable. **Resolved by reconstruction route** using VC6 metadata parsing and generation scripts. | Copilot | Continue scope expansion of reconstruction to additional non-core projects as needed. | Completed |
 
 ## Weekly Snapshot
 | Week Of | Overall Status | Completed This Week | New Blockers | Next Focus |
 |---|---|---|---|---|
-|  |  |  |  |  |
+| 2026-03-02 | Phase 2 core completed via reconstruction route | Generated modern core `RTS.sln/.vcxproj` for both trees; added manifest+reconstruction scripts; validation passed. | None (B-002 resolved by strategy change) | Phase 3 configuration normalization on generated core projects. |
