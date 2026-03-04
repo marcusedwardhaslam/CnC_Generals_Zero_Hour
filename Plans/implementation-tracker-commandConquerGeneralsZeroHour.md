@@ -22,11 +22,11 @@ Source plan: [plan-commandConquerGeneralsZeroHour.prompt.md](plan-commandConquer
 ## Phase 1 — Inventory and Baseline
 | Task | Owner | Status | Priority | Target Date | Notes/Blocker | Evidence/Links |
 |---|---|---|---|---|---|---|
-| Enumerate all `.dsw/.dsp` roots in `Generals` |  | Not Started | P0 |  |  |  |
-| Enumerate all `.dsw/.dsp` roots in `GeneralsMD` |  | Not Started | P0 |  |  |  |
-| Classify targets (`core`, `library`, `tool`, `plugin`) |  | Not Started | P1 |  |  |  |
-| Capture dependency order from workspace graphs |  | Not Started | P0 |  |  |  |
-| Identify high-coupling late-phase targets (`RTS`, `WorldBuilder`, WW3D plugins) |  | Not Started | P1 |  |  |  |
+| Enumerate all `.dsw/.dsp` roots in `Generals` | Copilot | Done | P0 | 2026-03-04 | Inventory completed and categorized. | [phase1-inventory-baseline.md](phase1-inventory-baseline.md) |
+| Enumerate all `.dsw/.dsp` roots in `GeneralsMD` | Copilot | Done | P0 | 2026-03-04 | Inventory completed and categorized. | [phase1-inventory-baseline.md](phase1-inventory-baseline.md) |
+| Classify targets (`core`, `library`, `tool`, `plugin`) | Copilot | Done | P1 | 2026-03-04 | Category rules applied to all discovered `.dsw/.dsp`. | [phase1-inventory-baseline.md](phase1-inventory-baseline.md) |
+| Capture dependency order from workspace graphs | Copilot | Done | P0 | 2026-03-04 | `RTS` dependency chains captured for both trees. | [phase1-inventory-baseline.md](phase1-inventory-baseline.md) |
+| Identify high-coupling late-phase targets (`RTS`, `WorldBuilder`, WW3D plugins) | Copilot | Done | P1 | 2026-03-04 | Late-phase target set recorded. | [phase1-inventory-baseline.md](phase1-inventory-baseline.md) |
 
 ## Phase 2 — Project Conversion
 | Task | Owner | Status | Priority | Target Date | Notes/Blocker | Evidence/Links |
